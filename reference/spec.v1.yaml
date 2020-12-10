@@ -1,0 +1,133 @@
+openapi: 3.0.0
+info:
+  title: playlist
+  version: '1.0'
+  contact:
+    name: Rägnar O'ock
+    email: u.drgnk@outlook.com
+  license:
+    name: MIT
+  description: API for the version 2 of the playlist at playlist.warths.fr
+servers:
+  - url: 'http://localhost:3000'
+    description: dev
+paths: {}
+components:
+  schemas:
+    request:
+      description: ''
+      type: object
+      properties:
+        id:
+          type: string
+          minLength: 1
+        title:
+          type: string
+          minLength: 1
+        artist:
+          type: string
+          minLength: 1
+        tags:
+          type: array
+          uniqueItems: true
+          minItems: 1
+          items:
+            required:
+              - id
+              - text
+              - icon
+              - color
+              - ariaLabel
+              - class
+            properties:
+              id:
+                type: number
+              text:
+                type: string
+                minLength: 1
+              icon:
+                type: string
+                minLength: 1
+              color:
+                type: string
+                minLength: 1
+              ariaLabel:
+                type: string
+                minLength: 1
+              class:
+                type: string
+                minLength: 1
+        requester:
+          type: object
+          properties:
+            displayName:
+              type: string
+              minLength: 1
+            color:
+              type: string
+              minLength: 1
+            badges:
+              type: array
+              uniqueItems: true
+              minItems: 1
+              items:
+                required:
+                  - icon
+                  - alttext
+                properties:
+                  icon:
+                    type: string
+                    minLength: 1
+                  alttext:
+                    type: string
+                    minLength: 1
+          required:
+            - displayName
+            - color
+            - badges
+      required:
+        - id
+        - title
+        - artist
+        - tags
+        - requester
+    tag:
+      description: ''
+      type: object
+      properties:
+        id:
+          type: string
+          description: uuid of the tag
+          format: uuid
+        label:
+          type: string
+          minLength: 1
+          example: VIP
+          description: label of the tag
+        icon:
+          type: string
+          format: uri
+          description: image URI to be used as an icon
+        ariaLabel:
+          type: string
+          minLength: 1
+        color:
+          type: string
+          minLength: 1
+      required:
+        - id
+        - label
+        - ariaLabel
+        - color
+  securitySchemes:
+    oauth:
+      type: oauth2
+      flows:
+        authorizationCode:
+          authorizationUrl: ''
+          tokenUrl: ''
+          refreshUrl: ''
+          scopes: {}
+      description: ''
+security:
+  - JWT: []
