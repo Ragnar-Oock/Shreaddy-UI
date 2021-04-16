@@ -1,13 +1,35 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + Vite" />
+	<SButton>
+		<template #default>
+			Some text here
+		</template>
+		<template #icon>
+			<svg
+				version="1.1"
+				viewBox="0 0 16 9.5"
+				xmlns="http://www.w3.org/2000/svg"
+				width="1em"
+			><path
+				class="a"
+				d="M 1.5,1.5 8,8 14.5,1.5"
+				fill="none"
+				stroke="currentColor"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="1.5"
+			/></svg>
+		</template>
+	</SButton>
 </template>
 
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import SButton from './components/SButton.vue';
 
-// This starter template is using Vue 3 experimental <script setup> SFCs
-// Check out https://github.com/vuejs/rfcs/blob/script-setup-2/active-rfcs/0000-script-setup.md
+export default {
+	components:{
+		SButton
+	}
+};
 </script>
 
 <style>
