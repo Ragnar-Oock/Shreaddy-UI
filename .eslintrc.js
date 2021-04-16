@@ -7,7 +7,9 @@ module.exports = {
 	},
 	extends: ['plugin:vue/recommended', 'eslint:recommended'],
 	plugins: ['vue'],
-	parser: '@babel/eslint-parser',
+	parserOptions: {
+		parser: '@babel/eslint-parser'
+	},
 	rules: {
 		'prefer-template': 'warn',
 		'template-curly-spacing': ['warn', 'always'],
