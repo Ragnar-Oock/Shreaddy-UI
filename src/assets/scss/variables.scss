@@ -1,0 +1,25 @@
+:root {
+	--accent: hsl(304, 62%, 55%);
+	--negative-accent: hsl(0, 85%, 63%);
+	
+	--filler-0: hsl(0, 0%, 100%);
+	--filler-1: hsl(0, 0%, 76%);
+	--filler-2: hsl(0, 0%, 58%);
+	--filler-3: hsl(0, 0%, 44%);
+	--filler-4: hsl(0, 0%, 33%);
+	--filler-5: hsl(0, 0%, 22%);
+	--filler-6: hsl(0, 0%, 13%);
+	--filler-7: hsl(0, 0%, 7%);
+	
+	--gradient-purpul-1: hsl(260, 44%, 40%);
+	--gradient-purpul-2: hsl(260, 76%, 63%);
+	
+	--gradient-red: hsl(310, 48%, 48%);
+	--gradient-red: hsl(0, 85%, 63%);
+	
+	--yellow: hsl(64, 85%, 63%);
+	
+	--text: var(--filler-0);
+	--text-on-accent: var(--filler-4);
+	--surface: var(--filler-3);
+}
