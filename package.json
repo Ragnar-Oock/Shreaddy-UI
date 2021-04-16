@@ -1,0 +1,28 @@
+{
+  "name": "playlist",
+  "version": "0.0.0",
+  "description": "A client for the new playlist and playlist manager for Warths' guitar streams at twitch.tv/warths",
+  "author": {
+    "name": "Rägnar O'ock",
+    "email": "u.drgnk@outlook.com",
+    "url": "https://github.com/Ragnar-Oock/"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "serve": "vite preview"
+  },
+  "dependencies": {
+    "vue": "^3.0.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.13.15",
+    "@babel/eslint-parser": "^7.13.14",
+    "@vitejs/plugin-vue": "^1.2.1",
+    "@vue/compiler-sfc": "^3.0.5",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.24.0",
+    "vite": "^2.1.5"
+  }
+}
