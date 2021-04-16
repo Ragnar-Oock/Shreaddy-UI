@@ -1,3 +1,9 @@
+@font-face {
+	font-family: 'Quicksand';
+	src: url('src/assets/fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
+	font-display: swap;
+}
+
 :root {
 	--accent: hsl(304, 62%, 55%);
 	--negative-accent: hsl(0, 85%, 63%);
