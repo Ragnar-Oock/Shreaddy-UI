@@ -269,14 +269,121 @@
 			</template>
 		</SButton>
 	</div>
+	<SButtonGroup type="compact">
+		<SButton
+			icon-side="left"
+			:compact="true"
+		>
+			<template #default>
+				Edit chances
+			</template>
+			<template #icon>
+				<svg
+					version="1.1"
+					viewBox="0 0 16 9.5"
+					xmlns="http://www.w3.org/2000/svg"
+					width="1em"
+					aria-hidden="true"
+				><path
+					class="a"
+					d="M 1.5,1.5 8,8 14.5,1.5"
+					fill="none"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="1.5"
+				/></svg>
+			</template>
+		</SButton>
+		<SButton
+			icon-side="left"
+			:compact="true"
+			:danger="true"
+			tooltip="I'm a dangerous button"
+		>
+			<template #default>
+				Randomise title
+			</template>
+			<template #icon>
+				<svg
+					version="1.1"
+					viewBox="0 0 16 9.5"
+					xmlns="http://www.w3.org/2000/svg"
+					width="1em"
+					aria-hidden="true"
+				><path
+					class="a"
+					d="M 1.5,1.5 8,8 14.5,1.5"
+					fill="none"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="1.5"
+				/></svg>
+			</template>
+		</SButton>
+	</SButtonGroup>
+	<SButtonGroup type="menu">
+		<SButton
+			icon-side="left"
+		>
+			<template #default>
+				Edit chances
+			</template>
+			<template #icon>
+				<svg
+					version="1.1"
+					viewBox="0 0 16 9.5"
+					xmlns="http://www.w3.org/2000/svg"
+					width="1em"
+					aria-hidden="true"
+				><path
+					class="a"
+					d="M 1.5,1.5 8,8 14.5,1.5"
+					fill="none"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="1.5"
+				/></svg>
+			</template>
+		</SButton>
+		<SButton
+			icon-side="left"
+			:danger="true"
+		>
+			<template #default>
+				Randomise title
+			</template>
+			<template #icon>
+				<svg
+					version="1.1"
+					viewBox="0 0 16 9.5"
+					xmlns="http://www.w3.org/2000/svg"
+					width="1em"
+					aria-hidden="true"
+				><path
+					class="a"
+					d="M 1.5,1.5 8,8 14.5,1.5"
+					fill="none"
+					stroke="currentColor"
+					stroke-linecap="round"
+					stroke-linejoin="round"
+					stroke-width="1.5"
+				/></svg>
+			</template>
+		</SButton>
+	</SButtonGroup>
 </template>
 
 <script>
 import SButton from './components/SButton.vue';
+import SButtonGroup from './components/SButtonGroup.vue';
 
 export default {
 	components:{
-		SButton
+		SButton,
+		SButtonGroup
 	},
 	data() {
 		return {
