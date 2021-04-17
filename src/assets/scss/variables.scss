@@ -26,10 +26,13 @@
 	--gradient-red-2: hsl(0, 85%, 63%);
 	
 	--yellow: hsl(64, 85%, 63%);
+	--red: hsl(359, 48%, 54%);
 	
 	--text: var(--filler-0);
 	--counter-text: var(--filler-7);
 	--text-on-accent: var(--filler-7);
 	--surface: var(--filler-4);
 	--accent: var(--primary-2);
+
+	--shadow: 0 0 15px hsla(0, 0%, 0%, 28%);
 }
