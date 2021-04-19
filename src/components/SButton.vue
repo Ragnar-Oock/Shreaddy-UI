@@ -1,15 +1,16 @@
 <template>
 	<button
 		ref="root"
+		v-tippy="{condition: compact, config: {placement: 'bottom'}}"
 		class="s-button"
-		:class="{ 'outline': outline, 'active': isActive, 'dull': dull, 'small': small, 'block': block, 'compact': compact, 'danger': danger }"
+		:class="{ 'outline': outline, 'active': isActive, 'dull': dull, 'small': small, 'block': block, 'compact': compact, 'danger': danger, 'menu-item': menuItem }"
 		:disabled="disabled"
+		:data-tippy-content="tooltip"
 		@click.capture="onClick"
 		@animationend="onAnimationEnd"
 	>
 		<span
 			v-if="iconSide == 'left' && hasIcon"
-			class="btn__icon"
 			class="s-button__icon"
 		><slot name="icon" /></span>
 		<span
@@ -18,7 +19,6 @@
 		><slot /></span>
 		<span
 			v-if="iconSide == 'right' && hasIcon"
-			class="btn__icon"
 			class="s-button__icon"
 		><slot name="icon" /></span>
 	</button>
@@ -78,8 +78,14 @@ export default {
 			type: String,
 			default: '',
 			required: false
+		},
+		menuItem: {
+			type: Boolean,
+			default: false,
+			required: false
 		}
 	},
+	emits: ['mounted'],
 	data () {
 		return {
 			isActive: false
@@ -89,6 +95,13 @@ export default {
 		hasIcon() {
 			return this.$slots.icon;
 		}
+	},
+	mounted() {
+		// if (this.compact) {
+		// 	const tip = this.$tippy(this.$refs.root, { placement: 'bottom' });
+
+		// 	this.$parent.$emit('child:mounted', tip);
+		// }
 	},
 	methods: {
 		onClick(e) {
@@ -225,6 +238,23 @@ export default {
 				color: var(--counter-text);
 			}
 		}
+		&.menu-item {
+			width: 100%;
+			max-width: unset;
+			justify-content: left;
+			padding: .5em;
+			border: none;
+			--accent: var(--primary-1);
+			// transition-property: color, background-color;
+			transition: none;
+
+			&:focus,
+			&:hover {
+				background-color: var(--accent);
+				color: var(--text-on-accent);
+				outline: none;
+			}
+		}
 
 		@keyframes click {
 			0% {
@@ -253,24 +283,6 @@ export default {
 		}
 		span:only-child#{&}__icon {
 			margin: 0;
-		}
-
-		@at-root &-group.menu & {
-			width: 100%;
-			max-width: unset;
-			justify-content: left;
-			padding: .5em;
-			border: none;
-			--accent: var(--primary-1);
-			// transition-property: color, background-color;
-			transition: none;
-
-			&:focus,
-			&:hover {
-				background-color: var(--accent);
-				color: var(--text-on-accent);
-				outline: none;
-			}
 		}
   }
 </style>
