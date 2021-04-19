@@ -29,12 +29,9 @@ const plugin = {
 
 		app.directive('tippy', {
 			mounted: function (el, binding) {
-				console.log(el, binding);
 				// condition is checked only on mount
 				if (Object.prototype.hasOwnProperty.call(binding.value, 'condition')) {
-					console.log('has condition');
-					if (binding.value.condition) {
-						console.log('codition is valid');
+					if (binding.value.condition && el.dataset.tippyContent !== '') {
 						tippy(el, {
 							...defaultConfig,
 							...binding.value.config
@@ -42,7 +39,6 @@ const plugin = {
 					}
 				}
 				else {
-					console.log("don't have condition");
 					tippy(el, {
 						...defaultConfig,
 						...binding.value
