@@ -1,5 +1,6 @@
 <template>
 	<div
+		ref="root"
 		class="s-button-group"
 		:class="[type]"
 	>
@@ -28,10 +29,15 @@ export default {
 				return ['vertical', 'horizontal'].includes(value);
 			}
 		}
+	},
+	mounted() {
+		// find all compact button components
+		const buttons = this.$refs.root.querySelectorAll('.s-button.compact');
+
+		// instanciate a singleton for all the buttons
+		this.$tippySingleton(buttons, { placement: 'bottom' });
 	}
 };
-
-
 </script>
 
 <style lang="scss">

@@ -1,7 +1,6 @@
 <template>
 	<button
 		ref="root"
-		v-tippy="{condition: compact, config: {placement: 'bottom'}}"
 		class="s-button"
 		:class="{ 'outline': outline, 'active': isActive, 'dull': dull, 'small': small, 'block': block, 'compact': compact, 'danger': danger, 'menu-item': menuItem }"
 		:disabled="disabled"
@@ -85,7 +84,6 @@ export default {
 			required: false
 		}
 	},
-	emits: ['mounted'],
 	data () {
 		return {
 			isActive: false
@@ -95,13 +93,6 @@ export default {
 		hasIcon() {
 			return this.$slots.icon;
 		}
-	},
-	mounted() {
-		// if (this.compact) {
-		// 	const tip = this.$tippy(this.$refs.root, { placement: 'bottom' });
-
-		// 	this.$parent.$emit('child:mounted', tip);
-		// }
 	},
 	methods: {
 		onClick(e) {
