@@ -77,11 +77,8 @@ export default {
   .s-radio-group {
 		display: flex;
 		flex-direction: column;
-		align-items: left;
 		&.horizontal {
 			flex-direction: row;
-			// border-radius: 5px;
-			// overflow: hidden;
 			width: max-content;
 		}
   }
