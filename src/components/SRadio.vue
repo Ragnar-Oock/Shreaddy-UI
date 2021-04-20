@@ -148,8 +148,7 @@ export default {
 				background-color: var(--accent);
 				color: var(--text-on-accent);
 			}
-			.input:checked:focus-visible + .label .text,
-			.input:checked + .label:hover .text {
+			.input:checked:focus-visible + .label .text {
 				background-color: var(--filler-5);
 				color: var(--text);
 				border-color: var(--accent);
