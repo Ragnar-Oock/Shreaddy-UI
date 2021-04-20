@@ -5,7 +5,13 @@
 	>
 		<SRadio
 			v-for="(option, index) in options"
+			:id="name + '-' + index"
 			:key="index"
+			v-model:checked="option.checked"
+			:disabled="option.isDisabled"
+			:name="name"
+			:value="option.value"
+			:block="type === 'block'"
 		>
 			text here
 		</SRadio>
@@ -34,10 +40,33 @@ export default {
 			type: Array,
 			required: true,
 			validator(value) {
-				const isArray = Array.isArray(value);
+				if (!Array.isArray(value)) {
+					return false;
+				}
 
-				return isArray;
+				value.forEach(option => {
+					const hasLabel = Object.prototype.hasOwnProperty.call(option, 'label');
+					const hasValue = Object.prototype.hasOwnProperty.call(option, 'value');
+
+					if (!hasLabel || !hasValue) {
+						return false;
+					}
+				});
+
+				return true;
 			}
+		},
+		type: {
+			type: String,
+			required: false,
+			default: 'list',
+			validator(value) {
+				return ['list', 'block'].includes(value);
+			}
+		},
+		name: {
+			type: String,
+			required: true
 		}
 	}
 };
