@@ -13,6 +13,7 @@
 			:name="name"
 			:value="option.value"
 			:block="type === 'block'"
+			:fill="fill"
 		>
 			{{ option.label }}
 		</SRadio>
@@ -73,6 +74,11 @@ export default {
 			type: String,
 			default: '',
 			required: false
+		},
+		fill: {
+			type: Boolean,
+			required: false,
+			default: false
 		}
 	}
 };

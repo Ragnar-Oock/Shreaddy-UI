@@ -1,7 +1,7 @@
 <template>
 	<div
 		class="s-radio"
-		:class="{'block': block}"
+		:class="{'block': block, 'fill': fill}"
 	>
 		<input
 			:id="id"
@@ -55,6 +55,11 @@ export default {
 			type: Boolean,
 			required: false,
 			default: false
+		},
+		fill: {
+			type: Boolean,
+			required: false,
+			default: false
 		}
 	},
 	emits: ['change', 'update:checked'],
@@ -77,8 +82,13 @@ export default {
 			opacity: 0;
 			z-index: -100;
 
-			&:checked + .label::before {
-				background-color: var(--accent);
+			&:checked + .label {
+				&::before {
+					background-color: var(--accent);
+				}
+				.text {
+					background-color: var(--filler-5);
+				}
 			}
 			&:disabled + .label {
 				& {
@@ -116,7 +126,6 @@ export default {
 		.text {
 			font-weight: 550;
 			color: var(--text);
-			background-color: var(--filler-5);
 			padding: calc(.25em - 3px) calc(.5em - 3px);
 			border-radius: 5px;
 			border: 3px solid #0000;
@@ -139,6 +148,7 @@ export default {
 					border-radius: 0;
 					margin: 0;
 					width: 100%;
+					background-color: var(--filler-5);
 				}
 				&::before {
 					content: none;
@@ -168,6 +178,12 @@ export default {
 				&:last-child .text{
 					border-radius: 0 0 5px 5px;
 				}
+			}
+		}
+
+		&.fill {
+			.text {
+				background-color: var(--filler-5);
 			}
 		}
   }
