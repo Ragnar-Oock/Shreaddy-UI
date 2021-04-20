@@ -1,4 +1,4 @@
-import tippy, { animateFill } from 'tippy.js';
+import tippy, { animateFill, createSingleton } from 'tippy.js';
 import 'tippy.js/dist/backdrop.css';
 import 'tippy.js/animations/shift-away.css';
 import 'tippy.js/dist/tippy.css';
@@ -21,10 +21,19 @@ const plugin = {
 			...options
 		});
 		app.config.globalProperties.$tippy = function (targets, optionalProps) {
-			return tippy(targets, {
-				...defaultConfig,
-				...optionalProps
+			return tippy(targets, { ...defaultConfig, ...optionalProps });
+		};
+
+
+		app.config.globalProperties.$tippySingleton = function (targets, optionalProps) {
+			const tippies = [];
+
+			// instanciate tippy for each component
+			targets.forEach(target => {
+				tippies.push(this.$tippy(target, { ...defaultConfig, ...optionalProps }));
 			});
+
+			return createSingleton(tippies, { ...defaultConfig, ...optionalProps });
 		};
 
 		app.directive('tippy', {
