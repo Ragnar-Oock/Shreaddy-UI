@@ -21,7 +21,7 @@ const plugin = {
 			...options
 		});
 		app.config.globalProperties.$tippy = function (targets, optionalProps) {
-			tippy(targets, {
+			return tippy(targets, {
 				...defaultConfig,
 				...optionalProps
 			});
