@@ -7,7 +7,7 @@
 			:id="id"
 			type="radio"
 			:name="name"
-			class="s-radio__input"
+			class="input"
 			:disabled="disabled"
 			:value="value"
 			:checked="checked"
@@ -15,9 +15,9 @@
 		>
 		<label
 			:for="id"
-			class="s-radio__label"
+			class="label"
 		>
-			<span class="s-radio__text">
+			<span class="text">
 				<slot />
 			</span>
 		</label>
@@ -71,14 +71,36 @@ export default {
 
 <style scoped lang="scss">
   .s-radio {
-		width: auto;
-		&__input {
+		width: max-content;
+		.input {
 			position: absolute;
 			opacity: 0;
+			z-index: -100;
+
+			&:checked + .label::before {
+				background-color: var(--accent);
+			}
+			&:disabled + .label {
+				& {
+					cursor: default;
+				}
+				& > .text {
+					background-color: #0000;
+					color: var(--counter-text);
+				}
+				&::before {
+					background-color: #0000;
+					border-color: var(--filler-2);
+				}
+				&:hover > .text {
+					border-color: #0000;
+				}
+			}
 		}
-		&__label {
+		.label {
 			display: inline-flex;
 			align-items: center;
+			cursor: pointer;
 
 			&::before {
 				content: '';
@@ -88,10 +110,10 @@ export default {
 				height: calc(.8em - 3px);
 				border-radius: 5px;
 				border: 3px solid var(--filler-5);
+				margin-left: .5em;
 			}
 		}
-		&__text {
-			cursor: pointer;
+		.text {
 			font-weight: 550;
 			color: var(--text);
 			background-color: var(--filler-5);
@@ -102,44 +124,46 @@ export default {
 			transition-property: border-color, background-color, color;
 			margin-left: .5em;
 		}
-		&__label:hover &__text,
-		&__input:focus + &__label &__text {
+		.label:hover .text,
+		.input:focus + .label .text {
 			border-color: var(--accent);
 		}
 
-		&__input:checked + &__label::before {
-			background-color: var(--accent);
-		}
-		&__input:disabled + &__label > &__text {
-			background-color: #0000;
-			color: var(--counter-text);
-			cursor: default;
-		}
-		&__input:disabled + &__label::before {
-			background-color: #0000;
-			border-color: var(--filler-2);
-		}
-		&__input:disabled + &__label:hover > &__text {
-			border-color: #0000;
-		}
+		&.block {
+			flex-grow: 1;
+			width: 100%;
 
-		&.block &__label &__text {
-			border-radius: 0;
-			margin: 0;
-		}
-		&.block &__label::before {
-			content: none;
-		}
-		&.block &__input:checked + &__label &__text {
-			background-color: var(--accent);
-			color: var(--text-on-accent);
-		}
+			.label {
+				width: 100%;
+				.text {
+					border-radius: 0;
+					margin: 0;
+					width: 100%;
+				}
+				&::before {
+					content: none;
+				}
+			}
+			.input:checked + .label .text {
+				background-color: var(--accent);
+				color: var(--text-on-accent);
+			}
 
-		&.block:first-child &__text{
-			border-radius: 5px 0 0 5px;
-		}
-		&.block:last-child &__text{
-			border-radius: 0 5px 5px 0;
+			&:first-child .text{
+				border-radius: 5px 0 0 5px;
+			}
+			&:last-child .text{
+				border-radius: 0 5px 5px 0;
+			}
+
+			.vertical & {
+				&:first-child .text{
+					border-radius: 5px 5px 0 0;
+				}
+				&:last-child .text{
+					border-radius: 0 0 5px 5px;
+				}
+			}
 		}
   }
 </style>
