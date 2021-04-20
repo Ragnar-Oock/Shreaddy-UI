@@ -1,7 +1,8 @@
 <template>
 	<div
 		class="s-radio-group"
-		:class="[direction]"
+		:class="[direction, {'columns': columns !== ''}]"
+		:style="{'grid-template-columns': columns}"
 	>
 		<SRadio
 			v-for="(option, index) in options"
@@ -67,6 +68,11 @@ export default {
 		name: {
 			type: String,
 			required: true
+		},
+		columns: {
+			type: String,
+			default: '',
+			required: false
 		}
 	}
 };
@@ -80,6 +86,9 @@ export default {
 		&.horizontal {
 			flex-direction: row;
 			width: max-content;
+		}
+		&.columns {
+			display: grid;
 		}
   }
 </style>
