@@ -5,10 +5,13 @@
 	>
 		<input
 			:id="id"
-			:type="type"
+			type="radio"
 			:name="name"
 			class="s-radio__input"
 			:disabled="disabled"
+			:value="value"
+			:checked="checked"
+			@input="onChange"
 		>
 		<label
 			:for="id"
@@ -44,15 +47,21 @@ export default {
 			required: false,
 			default: false
 		},
-		uncheckable: {
+		value: {
+			type: String,
+			required: true
+		},
+		checked: {
 			type: Boolean,
 			required: false,
 			default: false
 		}
 	},
-	computed:{
-		type() {
-			return this.uncheckable ? 'checkbox' : 'radio';
+	emits: ['change', 'update:checked'],
+	methods:{
+		onChange(e) {
+			this.$emit('change', e.target.value);
+			this.$emit('update:checked', e.target.value);
 		}
 	}
 };
