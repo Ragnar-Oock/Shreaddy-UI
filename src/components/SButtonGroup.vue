@@ -30,12 +30,21 @@ export default {
 			}
 		}
 	},
-	mounted() {
-		// find all compact button components
-		const buttons = this.$refs.root.querySelectorAll('.s-button.compact');
+	data () {
+		return {
+			tippies: []
+		};
+	},
+	methods: {
+		registerTippy(tippy) {
+			// add the new tippy to the array of tippy instances
+			this.tippies.push(tippy);
 
-		// instanciate a singleton for all the buttons
-		this.$tippySingleton(buttons, { placement: 'bottom' });
+			// if all childs have registered their tippy instance build a tippy singleton
+			if (this.$slots.default().length === this.tippies.length) {
+				this.$tippy.singletonFromTippies(this.tippies, { placement: 'bottom' });
+			}
+		}
 	}
 };
 </script>

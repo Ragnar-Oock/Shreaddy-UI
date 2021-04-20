@@ -86,12 +86,22 @@ export default {
 	},
 	data () {
 		return {
-			isActive: false
+			isActive: false,
+			tippy: undefined
 		};
 	},
 	computed: {
 		hasIcon() {
 			return this.$slots.icon;
+		}
+	},
+	mounted() {
+		if (this.compact) {
+			this.tippy = this.$tippy.new(this.$refs.root, { placement: 'bottom' });
+			// register the tippy instace in the parent if possible (for singleton)
+			if (this.$parent.registerTippy) {
+				this.$parent.registerTippy(this.tippy);
+			}
 		}
 	},
 	methods: {
