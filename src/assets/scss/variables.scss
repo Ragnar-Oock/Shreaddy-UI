@@ -34,5 +34,8 @@
 	--surface: var(--filler-4);
 	--accent: var(--primary-2);
 
-	--shadow: 0 0 15px hsla(0, 0%, 0%, 28%);
+	--shadow-color: hsla(0, 0%, 0%, 28%);
+	--shadow-blur: 15px;
+
+	--shadow: 0 0 var(--shadow-blur) var(--shadow-color);
 }
