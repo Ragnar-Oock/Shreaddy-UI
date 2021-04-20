@@ -21,19 +21,24 @@ const plugin = {
 		tippy.setDefaultProps({
 			...options
 		});
-		app.config.globalProperties.$tippy = function (targets, optionalProps) {
+		app.config.globalProperties.$tippy = {};
+		app.config.globalProperties.$tippy.new = function (targets, optionalProps) {
 			return tippy(targets, { ...defaultConfig, ...optionalProps });
 		};
 
 
-		app.config.globalProperties.$tippySingleton = function (targets, optionalProps) {
+		app.config.globalProperties.$tippy.singletonFromTarget = function (targets, optionalProps) {
 			const tippies = [];
 
 			// instanciate tippy for each component
 			targets.forEach(target => {
-				tippies.push(this.$tippy(target, { ...defaultConfig, ...optionalProps }));
+				tippies.push(tippy(target, { ...defaultConfig, ...optionalProps }));
 			});
 
+			return createSingleton(tippies, { ...defaultConfig, ...optionalProps });
+		};
+
+		app.config.globalProperties.$tippy.singletonFromTippies = function (tippies, optionalProps) {
 			return createSingleton(tippies, { ...defaultConfig, ...optionalProps });
 		};
 
