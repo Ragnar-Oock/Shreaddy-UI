@@ -2,6 +2,7 @@ import tippy, { animateFill, createSingleton } from 'tippy.js';
 import 'tippy.js/dist/backdrop.css';
 import 'tippy.js/animations/shift-away.css';
 import 'tippy.js/dist/tippy.css';
+import '../assets/scss/tooltips.scss';
 
 const defaultConfig = {
 	plugins: [animateFill],
