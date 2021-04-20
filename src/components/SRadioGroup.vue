@@ -13,7 +13,7 @@
 			:value="option.value"
 			:block="type === 'block'"
 		>
-			text here
+			{{ option.label }}
 		</SRadio>
 	</div>
 </template>
