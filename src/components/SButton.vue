@@ -114,7 +114,7 @@ export default {
 
 <style lang="scss">
   .s-button {
-		background-color: var(--filler-6);
+		background-color: var(--filler-5);
 		color: var(--text);
 		border: 3px solid #0000;
 		border-radius: 5px;
@@ -149,7 +149,7 @@ export default {
 
 		&.outline {
 			background-color: #0000;
-			border-color: var(--filler-6);
+			border-color: var(--filler-5);
 			color: var(--counter-text);
 
 			&:focus,
@@ -194,8 +194,8 @@ export default {
 		}
 		&.dull {
 			background-color: var(--filler-3);
-			--riple-color: var(--filler-6);
-			--border-color: var(--filler-6)
+			--riple-color: var(--filler-5);
+			--border-color: var(--filler-5)
 		}
 		&.small {
 			padding: .25em .75em;
