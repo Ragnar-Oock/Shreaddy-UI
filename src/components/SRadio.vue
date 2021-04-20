@@ -125,7 +125,7 @@ export default {
 			margin-left: .5em;
 		}
 		.label:hover .text,
-		.input:focus + .label .text {
+		.input:focus-visible + .label .text {
 			border-color: var(--accent);
 		}
 
@@ -147,6 +147,12 @@ export default {
 			.input:checked + .label .text {
 				background-color: var(--accent);
 				color: var(--text-on-accent);
+			}
+			.input:checked:focus-visible + .label .text,
+			.input:checked + .label:hover .text {
+				background-color: var(--filler-5);
+				color: var(--text);
+				border-color: var(--accent);
 			}
 
 			&:first-child .text{
