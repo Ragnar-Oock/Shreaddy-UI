@@ -118,9 +118,10 @@ export default {
 				display: block;
 				width: calc(.8em - 3px);
 				height: calc(.8em - 3px);
-				border-radius: 5px;
+				border-radius: 6px;
 				border: 3px solid var(--filler-5);
 				margin-left: .5em;
+				box-sizing: initial;
 			}
 		}
 		.text {
