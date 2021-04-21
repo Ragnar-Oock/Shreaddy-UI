@@ -1,8 +1,4 @@
-@font-face {
-	font-family: 'Quicksand';
-	src: url('src/assets/fonts/Quicksand-VariableFont_wght.ttf') format('truetype');
-	font-display: swap;
-}
+@use 'fonts';
 
 :root {
 	--negative-accent: hsl(0, 85%, 63%);
