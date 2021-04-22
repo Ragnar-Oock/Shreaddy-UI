@@ -5,13 +5,12 @@
 	>
 		<input
 			:id="id"
+			v-model="isChecked"
 			type="radio"
 			:name="name"
 			class="input"
 			:disabled="disabled"
 			:value="value"
-			:checked="checked"
-			@input="onChange"
 		>
 		<label
 			:for="id"
@@ -63,10 +62,20 @@ export default {
 		}
 	},
 	emits: ['change', 'update:checked'],
+	computed:{
+		isChecked: {
+			get() {
+				return this.checked;
+			},
+			set() {
+				this.$emit('update:checked', this.value);
+			}
+		}
+	},
 	methods:{
 		onChange(e) {
-			this.$emit('change', e.target.value);
-			this.$emit('update:checked', e.target.value);
+			console.log(`checkbox ${ this.value } is now`, e);
+			this.$emit('update:checked', e.target.checked);
 		}
 	}
 };

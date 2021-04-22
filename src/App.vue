@@ -36,10 +36,12 @@
 		:options="options5"
 	/>
 	<SRadioGroup
-		name="radio-group-3"
+		v-model:selected="selected15"
 		:options="options15"
+		name="radio-group-3"
 		columns="repeat(auto-fill, minmax(35ch, 1fr))"
 	/>
+	{{ selected15 }}
 	<SButtonGroup
 		type="compact"
 	>
@@ -120,7 +122,8 @@ export default {
 			buttonText: 'Some text here',
 			rangeValue: 15,
 			options5: this.getOptions(5),
-			options15: this.getOptions(15)
+			options15: this.getOptions(15),
+			selected15: '1'
 		};
 	},
 	methods: {
@@ -142,7 +145,7 @@ export default {
 			for (let i = 0; i < n; i++) {
 				options.push({
 					label: makeid(25),
-					value: n.toString(),
+					value: i.toString(),
 					isDisabled: false
 				});
 			}

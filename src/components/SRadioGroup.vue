@@ -8,12 +8,16 @@
 			v-for="(option, index) in options"
 			:id="name + '-' + index"
 			:key="index"
-			v-model:checked="option.checked"
+
+			:checked="option.checked"
 			:disabled="option.isDisabled"
+
 			:name="name"
 			:value="option.value"
+
 			:block="type === 'block'"
 			:fill="fill"
+			@update:checked="onChange"
 		>
 			{{ option.label }}
 		</SRadio>
@@ -79,6 +83,17 @@ export default {
 			type: Boolean,
 			required: false,
 			default: false
+		},
+		selected: {
+			type: String,
+			required: false,
+			default: undefined
+		}
+	},
+	emits: ['update:selected'],
+	methods: {
+		onChange(event) {
+			this.$emit('update:selected', event);
 		}
 	}
 };
