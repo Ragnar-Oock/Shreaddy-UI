@@ -51,9 +51,9 @@ export default {
 			required: true
 		},
 		checked: {
-			type: Boolean,
+			type: String,
 			required: false,
-			default: false
+			default: undefined
 		},
 		fill: {
 			type: Boolean,

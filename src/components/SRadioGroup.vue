@@ -9,14 +9,15 @@
 			:id="name + '-' + index"
 			:key="index"
 
-			:checked="option.checked"
-			:disabled="option.isDisabled"
-
 			:name="name"
 			:value="option.value"
 
 			:block="type === 'block'"
 			:fill="fill"
+
+			:disabled="option.isDisabled"
+
+			:checked="selected"
 			@update:checked="onChange"
 		>
 			{{ option.label }}

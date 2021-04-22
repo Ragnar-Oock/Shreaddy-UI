@@ -24,6 +24,7 @@
 	</SRadio>
 
 	<SRadioGroup
+		v-model:selected="selected5"
 		direction="horizontal"
 		type="block"
 		name="radio-group"
@@ -31,10 +32,12 @@
 		style="width:100%"
 	/>
 	<SRadioGroup
+		v-model:selected="selected5"
 		type="block"
 		name="radio-group-2"
 		:options="options5"
 	/>
+	{{ selected5 }}
 	<SRadioGroup
 		v-model:selected="selected15"
 		:options="options15"
@@ -123,7 +126,8 @@ export default {
 			rangeValue: 15,
 			options5: this.getOptions(5),
 			options15: this.getOptions(15),
-			selected15: '1'
+			selected15: '1',
+			selected5: '1'
 		};
 	},
 	methods: {
