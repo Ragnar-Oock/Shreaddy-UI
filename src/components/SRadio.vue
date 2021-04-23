@@ -71,12 +71,6 @@ export default {
 				this.$emit('update:checked', this.value);
 			}
 		}
-	},
-	methods:{
-		onChange(e) {
-			console.log(`checkbox ${ this.value } is now`, e);
-			this.$emit('update:checked', e.target.checked);
-		}
 	}
 };
 
