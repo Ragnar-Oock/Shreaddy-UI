@@ -103,6 +103,15 @@
 		Bonus chances
 	</SRange>
 	value of the input is {{ rangeValue }}
+
+	<SCheckbox
+		id="checkbox"
+		v-model:checked="checkbox"
+		name="checkbox"
+		value="I'm checked"
+	>
+		I'm a checkbox
+	</SCheckbox>
 </template>
 
 <script>
@@ -111,6 +120,7 @@ import SRadioGroup from './components/SRadioGroup.vue';
 import SButton from './components/SButton.vue';
 import SButtonGroup from './components/SButtonGroup.vue';
 import SRange from './components/SRange.vue';
+import SCheckbox from './components/SCheckbox.vue';
 
 export default {
 	components:{
@@ -118,7 +128,8 @@ export default {
 		SRadioGroup,
 		SButton,
 		SButtonGroup,
-		SRange
+		SRange,
+		SCheckbox
 	},
 	data() {
 		return {
@@ -127,7 +138,8 @@ export default {
 			options5: this.getOptions(5),
 			options15: this.getOptions(15),
 			selected15: '1',
-			selected5: '1'
+			selected5: '1',
+			checkbox: false
 		};
 	},
 	methods: {
