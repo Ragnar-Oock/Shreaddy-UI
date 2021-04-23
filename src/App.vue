@@ -163,7 +163,6 @@ export default {
 <style>
 #app {
 	font-family: 'Quicksand';
-  text-align: center;
   margin-top: 60px;
 }
 

@@ -159,6 +159,7 @@ export default {
 					margin: 0;
 					width: 100%;
 					background-color: var(--filler-5);
+					text-align: center;
 				}
 				&::before {
 					content: none;
