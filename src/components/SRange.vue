@@ -145,9 +145,10 @@ export default {
 				border: none;
 				border-radius: 5px;
 				background-color: var(--thumb-color);
-				// border: 3px solid #0000;
-				box-sizing: content-box;
-				transition: background-color 300ms ease-in-out;
+				border: 3px solid #0000;
+				box-sizing: border-box;
+				transition: 300ms ease-in-out;
+				transition-property: background-color, border-color;
 			}
 			&::-moz-range-thumb {
 				width: var(--thumb-width);
@@ -155,9 +156,10 @@ export default {
 				border: none;
 				border-radius: 5px;
 				background-color: var(--thumb-color);
-				// border: 3px solid #0000;
-				box-sizing: content-box;
-				transition: background-color 300ms ease-in-out;
+				border: 3px solid #0000;
+				box-sizing: border-box;
+				transition: 300ms ease-in-out;
+				transition-property: background-color, border-color;
 			}
 
 			&::-webkit-slider-runnable-track {
@@ -176,7 +178,7 @@ export default {
 				transition: background-color 300ms ease-in-out;
 			}
 
-			&:focus{
+			&:focus-visible{
 				outline: none;
 				&::-webkit-slider-runnable-track{
 					border-color: var(--thumb-color);
@@ -190,6 +192,19 @@ export default {
 				}
 				&::-moz-range-thumb{
 					background-color: var(--track-color);
+				}
+			}
+
+			&:focus,
+			&:hover {
+				outline: none;
+				&::-webkit-slider-thumb {
+					background-color: var(--track-color);
+					border-color: var(--accent);
+				}
+				&::-moz-range-thumb{
+					background-color: var(--track-color);
+					border-color: var(--accent);
 				}
 			}
 
