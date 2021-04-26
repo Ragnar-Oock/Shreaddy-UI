@@ -1,5 +1,8 @@
 <template>
-	<div class="s-checkbox">
+	<div
+		class="s-checkbox"
+		:class="{'block': block}"
+	>
 		<input
 			:id="id"
 			v-model="isChecked"
