@@ -47,9 +47,9 @@ export default {
 			required: true
 		},
 		checked: {
-			type: String,
+			type: Boolean,
 			required: false,
-			default: undefined
+			default: false
 		}
 	},
 	emits: ['update:checked'],
