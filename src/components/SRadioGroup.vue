@@ -18,7 +18,7 @@
 			:disabled="option.isDisabled"
 
 			:checked="selected"
-			@update:checked="onChange"
+			@update:checked="$emit('update:selected', $event)"
 		>
 			{{ option.label }}
 		</SRadio>
@@ -91,12 +91,7 @@ export default {
 			default: undefined
 		}
 	},
-	emits: ['update:selected'],
-	methods: {
-		onChange(event) {
-			this.$emit('update:selected', event);
-		}
-	}
+	emits: ['update:selected']
 };
 
 </script>
