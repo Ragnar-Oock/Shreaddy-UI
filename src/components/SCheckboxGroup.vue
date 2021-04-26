@@ -1,5 +1,9 @@
 <template>
-	<div class="s-checkbox-group">
+	<div
+		class="s-checkbox-group"
+		:class="[direction, {'columns': columns !== ''}]"
+		:style="{'grid-template-columns': columns}"
+	>
 		<SCheckbox
 			v-for="(option, index) in options"
 			:id="name + '-' + index"
@@ -69,14 +73,22 @@ export default {
 			type: Boolean,
 			default: false,
 			required: false
+		},
+		columns: {
+			type: String,
+			default: '',
+			required: false
+		},
+		direction: {
+			type: String,
+			required: false,
+			default: 'vertical',
+			validator(value) {
+				return ['vertical', 'horizontal'].includes(value);
+			}
 		}
 	},
 	emits: ['update:selected'],
-	data () {
-		return {
-			// selectedOptions: []
-		};
-	},
 	methods: {
 		onCheckChange(option, event) {
 			if (this.toggle) {

@@ -118,8 +118,8 @@
 		v-model:selected="selectedCheckboxes"
 		:options="options15"
 		name="checkbox-group-15"
-		type="block"
-		:toggle="true"
+		columns="repeat(auto-fill, minmax(35ch, 1fr))"
+		toggle
 	/>
 	checkboxes : {{ selectedCheckboxes }}
 </template>
