@@ -112,6 +112,16 @@
 	>
 		I'm a checkbox
 	</SCheckbox>
+	is checkbox checked? {{ checkbox }}
+
+	<SCheckboxGroup
+		v-model:selected="selectedCheckboxes"
+		:options="options15"
+		name="checkbox-group-15"
+		type="block"
+		:toggle="true"
+	/>
+	checkboxes : {{ selectedCheckboxes }}
 </template>
 
 <script>
@@ -121,6 +131,7 @@ import SButton from './components/SButton.vue';
 import SButtonGroup from './components/SButtonGroup.vue';
 import SRange from './components/SRange.vue';
 import SCheckbox from './components/SCheckbox.vue';
+import SCheckboxGroup from './components/SCheckboxGroup.vue';
 
 export default {
 	components:{
@@ -129,7 +140,8 @@ export default {
 		SButton,
 		SButtonGroup,
 		SRange,
-		SCheckbox
+		SCheckbox,
+		SCheckboxGroup
 	},
 	data() {
 		return {
@@ -139,7 +151,8 @@ export default {
 			options15: this.getOptions(15),
 			selected15: '1',
 			selected5: '1',
-			checkbox: false
+			checkbox: false,
+			selectedCheckboxes: []
 		};
 	},
 	methods: {
@@ -159,8 +172,11 @@ export default {
 			}
 
 			for (let i = 0; i < n; i++) {
+				const text = makeid(5);
+
 				options.push({
-					label: makeid(25),
+					label: text,
+					name: text,
 					value: i.toString(),
 					isDisabled: false
 				});
