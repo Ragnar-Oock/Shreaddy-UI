@@ -110,18 +110,28 @@
 		name="checkbox"
 		value="I'm checked"
 	>
-		I'm a checkbox
+		make togglable
 	</SCheckbox>
-	is checkbox checked? {{ checkbox }}
+	is checkbox group toggle able? {{ checkbox }}
 
 	<SCheckboxGroup
 		v-model:selected="selectedCheckboxes"
 		:options="options15"
 		name="checkbox-group-15"
 		columns="repeat(auto-fill, minmax(35ch, 1fr))"
-		toggle
+		:toggle="checkbox"
 	/>
 	checkboxes : {{ selectedCheckboxes }}
+
+	<SInput
+		id="textInput"
+		v-model:value="textInput"
+		pattern="[A-Z\s]*"
+		placeholder="placeholder"
+	>
+		i'm a text input
+	</SInput>
+	{{ textInput }}
 </template>
 
 <script>
@@ -132,6 +142,7 @@ import SButtonGroup from './components/SButtonGroup.vue';
 import SRange from './components/SRange.vue';
 import SCheckbox from './components/SCheckbox.vue';
 import SCheckboxGroup from './components/SCheckboxGroup.vue';
+import SInput from './components/SInput.vue';
 
 export default {
 	components:{
@@ -141,7 +152,8 @@ export default {
 		SButtonGroup,
 		SRange,
 		SCheckbox,
-		SCheckboxGroup
+		SCheckboxGroup,
+		SInput
 	},
 	data() {
 		return {
@@ -152,7 +164,8 @@ export default {
 			selected15: '1',
 			selected5: '1',
 			checkbox: false,
-			selectedCheckboxes: []
+			selectedCheckboxes: [],
+			textInput: 'some text here'
 		};
 	},
 	methods: {
@@ -188,20 +201,17 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss">
 #app {
 	font-family: 'Quicksand';
   margin-top: 60px;
+	& > * + * {
+		margin-top: 1em;
+	}
+	padding: 5em 1em;
 }
 
 body{
 	background-color: var(--surface);
-}
-
-.grid {
-	display: grid;
-	grid-template-columns: 1fr 1fr;
-	grid-auto-rows: auto;
-	gap: 1em;
 }
 </style>
